@@ -1,0 +1,24 @@
+import random
+import matplotlib.pyplot as plt
+
+def simulate_crash_round():
+    """Simulate a single round of a crash game."""
+    crash_point = random.uniform(1.0, 10.0)  # Random crash point between 1x and 10x
+    return crash_point
+
+def run_simulation(num_rounds):
+    """Simulate multiple rounds and display results."""
+    crash_points = [simulate_crash_round() for _ in range(num_rounds)]
+    plt.plot(crash_points, marker='o', linestyle='--', color='r')
+    plt.title("Crash Game Simulation")
+    plt.xlabel("Round Number")
+    plt.ylabel("Crash Multiplier")
+    plt.grid(True)
+    plt.show()
+    return crash_points
+
+# Run a simulation of 100 rounds
+if __name__ == "__main__":
+    num_rounds = 100
+    results = run_simulation(num_rounds)
+    print("Simulated Crash Points:", results)
